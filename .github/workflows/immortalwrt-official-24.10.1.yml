@@ -68,6 +68,8 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
+        cat xiaomi_mi-router-4a-gigabit-v2-32MB.yml >> openwrt/target/linux/ramips/image/mt7621.mk
+        mv mt7621_xiaomi_mi-router-4a-gigabit-v2-32MB.dts openwrt/target/linux/ramips/dts
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
     - name: SSH connection to Actions
