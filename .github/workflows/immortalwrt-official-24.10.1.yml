@@ -53,7 +53,7 @@ jobs:
     - name: Add custom device
       run: |
         chmod +x $DIY_P3_SH
-        $DIY_P3_SH
+        $GITHUB_WORKSPACE/$DIY_P3_SH
 
     - name: Load custom feeds
       run: |
