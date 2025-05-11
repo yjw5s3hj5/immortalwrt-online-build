@@ -1,0 +1,11 @@
+define Device/xiaomi_mi-router-4a-gigabit-v2-32MB
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 31168k
+  DEVICE_VENDOR := Xiaomi
+  DEVICE_MODEL := Mi Router 4A
+  DEVICE_VARIANT := Gigabit Edition v2 32MB
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt7615e kmod-mt7663-firmware-ap \
+	-uboot-envtools
+endef
+TARGET_DEVICES += xiaomi_mi-router-4a-gigabit-v2-32MB
