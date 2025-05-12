@@ -122,7 +122,7 @@ jobs:
       id: tag
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M" +$REPO_TAG)"
+        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")+$REPO_TAG"
         touch release.txt
         echo "::set-output name=status::success"
     - name: Upload firmware to release
