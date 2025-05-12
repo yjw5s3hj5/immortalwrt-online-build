@@ -1,4 +1,4 @@
-name: ImmortalWrt 24.10.1 Xiaomi 4a Gigabit v2
+name: ImmortalWrt snapshot Xiaomi 4a Gigabit v2
 
 on:
   repository_dispatch:
@@ -6,8 +6,8 @@ on:
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-24.10
-  REPO_TAG: 24.10.1
+  REPO_BRANCH: master
+  REPO_TAG: snapshot
   FEEDS_CONF: feeds.conf.default
   DEVICE_FOLDER_GIT: xiaomi-4a-gigabit-v2
   CONFIG_FILE: .config
@@ -44,8 +44,6 @@ jobs:
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        cd openwrt
-        git tag $REPO_TAG
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     - name: Load custom feeds
       run: |
