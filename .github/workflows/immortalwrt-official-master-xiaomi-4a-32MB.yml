@@ -9,10 +9,10 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   DEVICE_FOLDER_GIT: xiaomi-4a-gigabit-v2-32MB
-  CONFIG_FILE: $(eval echo $DEVICE_FOLDER_GIT)/.config
-  DIY_P1_SH: $(eval echo $DEVICE_FOLDER_GIT)/diy-part1.sh
-  DIY_P2_SH: $(eval echo $DEVICE_FOLDER_GIT)/diy-part2.sh
-  DIY_P3_SH: $(eval echo $DEVICE_FOLDER_GIT)/diy-part3.sh
+  CONFIG_FILE: $(DEVICE_FOLDER_GIT)/.config
+  DIY_P1_SH: $(DEVICE_FOLDER_GIT)/diy-part1.sh
+  DIY_P2_SH: $(DEVICE_FOLDER_GIT)/diy-part2.sh
+  DIY_P3_SH: $(DEVICE_FOLDER_GIT)/diy-part3.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
