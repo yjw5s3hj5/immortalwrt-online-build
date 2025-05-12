@@ -1,4 +1,4 @@
-name: ImmortalWrt 24.10.1 Xiaomi 4a Gigabit v2 32MB
+name: ImmortalWrt 24.10.1 Xiaomi 4a Gigabit v2
 
 on:
   repository_dispatch:
@@ -9,11 +9,10 @@ env:
   REPO_BRANCH: openwrt-24.10
   REPO_TAG: 24.10.1
   FEEDS_CONF: feeds.conf.default
-  DEVICE_FOLDER_GIT: xiaomi-4a-gigabit-v2-32MB
+  DEVICE_FOLDER_GIT: xiaomi-4a-gigabit-v2
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  DIY_P3_SH: diy-part3.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -48,12 +47,6 @@ jobs:
         cd openwrt
         git tag $REPO_TAG
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-
-    - name: Add custom device
-      run: |
-        chmod +x $DEVICE_FOLDER_GIT/$DIY_P3_SH
-        $GITHUB_WORKSPACE/$DEVICE_FOLDER_GIT/$DIY_P3_SH
-
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
