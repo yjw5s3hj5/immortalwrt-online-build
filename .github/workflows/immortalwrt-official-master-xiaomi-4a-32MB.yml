@@ -1,4 +1,4 @@
-name: ImmortalWrt 24.10.1
+name: ImmortalWrt master Xiaomi 4a Gigabit v2 32MB
 
 on:
   repository_dispatch:
@@ -7,12 +7,12 @@ on:
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: master
-  REPO_TAG: 24.10.1
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config
-  DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
-  DIY_P3_SH: diy-part3.sh
+  DEVICE_FOLDER_GIT: xiaomi-4a-gigabit-v2-32MB
+  CONFIG_FILE: $DEVICE_FOLDER_GIT/.config
+  DIY_P1_SH: $DEVICE_FOLDER_GIT/diy-part1.sh
+  DIY_P2_SH: $DEVICE_FOLDER_GIT/diy-part2.sh
+  DIY_P3_SH: $DEVICE_FOLDER_GIT/diy-part3.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -46,8 +46,6 @@ jobs:
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        cd openwrt
-        git tag $REPO_TAG
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Add custom device
